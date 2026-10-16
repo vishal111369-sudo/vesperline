@@ -3,6 +3,7 @@
   var stage=document.getElementById('scStage'); if(!stage) return;
   var top=document.getElementById('scTop'),fill=document.getElementById('scFill'),partEl=document.getElementById('scPart'),countEl=document.getElementById('scCount'),backBtn=document.getElementById('scBack');
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ARR='<svg viewBox="0 0 15 10" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4"/></svg>';
   function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
 
   /* ---------- part 1: scored questions ---------- */
@@ -84,16 +85,16 @@
   }
 
   function renderIntro(){
-    screen('<h1>Get your Operations Scorecard</h1><p class="lede">Find out where your operation sits on the five levels, which area is holding it back, and the three fixes that would help most.</p>'+
-      '<div class="sc-intro-meta"><div><b>16</b>short questions</div><div><b>3 min</b>to finish</div><div><b>Free</b>detailed report</div></div>'+
-      '<button class="btn btn-primary" id="scStart" type="button">Start the Scorecard</button><p class="small muted" style="margin-top:18px">No preparation needed. Answer for how things work today, not how they should work.</p>');
+    screen('<p class="eyebrow">Operations Scorecard</p><h1 class="d1" style="margin-top:12px;max-width:16ch">Find your level <em class="a">in three minutes.</em></h1><p class="lead" style="margin-top:22px">Where your operation sits on the five levels, which part is holding it back, and the three fixes that would help most.</p>'+
+      '<div class="sc-meta"><div><b>16</b>short questions</div><div><b>3 min</b>to finish</div><div><b>Free</b>detailed report in 5 working days</div></div>'+
+      '<button class="btn fill" id="scStart" type="button">Start the Scorecard '+ARR+'</button><p class="sc-tip">No preparation needed. Answer for how things work today, not how they should work.</p>');
     document.getElementById('scStart').addEventListener('click',function(){if(!started)started=Date.now();go(1);});
   }
 
   function renderQ(i){
     var q=Q[i];
     var opts=q.o.map(function(o,j){return '<button class="sc-opt" type="button" data-j="'+j+'" aria-pressed="'+(scores[i]===j)+'"><span class="key">'+(j+1)+'</span><span>'+esc(o)+'</span></button>';}).join('');
-    screen('<span class="sc-area">'+q.a+'</span><p class="sc-q">'+esc(q.q)+'</p><div class="sc-opts" role="group" aria-label="Answers">'+opts+'</div><p class="small muted" style="margin-top:20px">Tip: press 1 to 4 on your keyboard to answer.</p>');
+    screen('<span class="sc-area">'+q.a+'</span><p class="sc-q">'+esc(q.q)+'</p><div class="sc-opts" role="group" aria-label="Answers">'+opts+'</div><p class="sc-tip">Press 1 to 4 on your keyboard to answer.</p>');
     stage.querySelectorAll('.sc-opt').forEach(function(b){b.addEventListener('click',function(){pick(i,+b.getAttribute('data-j'));});});
   }
   function pick(i,j){
@@ -108,7 +109,7 @@
   /* ---------- widgets ---------- */
   function combo(key,label,list,ph){
     var id='cb-'+key;
-    return '<div class="field"><label for="'+id+'">'+label+'</label><div class="combo" data-key="'+key+'"><input class="input" id="'+id+'" type="text" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="'+id+'-l" autocomplete="off" placeholder="'+esc(ph)+'" value="'+esc(setup[key])+'"><ul class="combo-list" id="'+id+'-l" role="listbox" hidden></ul></div><div class="combo-hint">Not listed? Type the name and keep going.</div></div>';
+    return '<div class="fld"><label for="'+id+'">'+label+'</label><div class="combo" data-key="'+key+'"><input class="inp" id="'+id+'" type="text" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="'+id+'-l" autocomplete="off" placeholder="'+esc(ph)+'" value="'+esc(setup[key])+'"><ul class="combo-list" id="'+id+'-l" role="listbox" hidden></ul></div><div class="hint">Not listed? Type the name and keep going.</div></div>';
   }
   function bindCombo(el){
     var key=el.getAttribute('data-key'),inp=el.querySelector('input'),ul=el.querySelector('ul'),list=L[key],act=-1,items=[];
@@ -138,8 +139,8 @@
     var cur=setup[key];
     var html=list.map(function(x){var on=multi?cur.indexOf(x)>-1:cur===x;return '<button type="button" class="chip" data-v="'+esc(x)+'" aria-pressed="'+on+'">'+esc(x)+'</button>';}).join('');
     if(otherKey){var oo=!!setup[otherKey];html+='<button type="button" class="chip" data-other="1" aria-pressed="'+oo+'">Other</button>';}
-    return '<div class="field"><span class="lbl" id="lb-'+key+'">'+label+'</span><div class="'+(multi?'chips':'chips seg')+'" role="group" aria-labelledby="lb-'+key+'" data-key="'+key+'" data-multi="'+(multi?1:0)+'"'+(otherKey?' data-otherkey="'+otherKey+'"':'')+'>'+html+'</div>'+
-      (otherKey?'<input class="input" style="margin-top:12px'+(setup[otherKey]?'':';display:none')+'" data-otherinput="'+otherKey+'" placeholder="Type the names, separated by commas" value="'+esc(setup[otherKey])+'">':'')+'</div>';
+    return '<div class="fld"><span class="lbl" id="lb-'+key+'">'+label+'</span><div class="'+(multi?'chips':'chips pick')+'" role="group" aria-labelledby="lb-'+key+'" data-key="'+key+'" data-multi="'+(multi?1:0)+'"'+(otherKey?' data-otherkey="'+otherKey+'"':'')+'>'+html+'</div>'+
+      (otherKey?'<input class="inp" style="margin-top:12px'+(setup[otherKey]?'':';display:none')+'" data-otherinput="'+otherKey+'" placeholder="Type the names, separated by commas" value="'+esc(setup[otherKey])+'">':'')+'</div>';
   }
   function bindChips(g,onChange){
     var key=g.getAttribute('data-key'),multi=g.getAttribute('data-multi')==='1',ok=g.getAttribute('data-otherkey');
@@ -159,7 +160,7 @@
     var S=SETUP[s],body='';
     if(S.k==='systems'){body=combo('platform','Customer platform',L.platform,'Search platforms, for example SOFTSWISS')+combo('crm','CRM software',L.crm,'Search CRM tools, for example Optimove')+combo('support','Customer support or messaging desk',L.support,'Search tools, for example Zendesk');}
     if(S.k==='messaging'){body=chips('channels','Channels you use today',L.channels,true)+chips('providers','Providers for SMS, WhatsApp, email or push',L.providers,true,'providersOther');}
-    if(S.k==='market'){body=chips('market','Market type',['Regulated','Grey','Black'],false)+'<div class="field licence" id="licWrap"'+(setup.market==='Regulated'?'':' hidden')+'><label for="lic">Licence or licences</label><input class="input" id="lic" placeholder="Licence name and number" value="'+esc(setup.licence)+'"></div>';}
+    if(S.k==='market'){body=chips('market','Market type',['Regulated','Grey','Black'],false)+'<div class="fld" id="licWrap"'+(setup.market==='Regulated'?'':' hidden')+'><label for="lic">Licence or licences</label><input class="inp" id="lic" placeholder="Licence name and number" value="'+esc(setup.licence)+'"></div>';}
     if(S.k==='tools'){body=combo('gamification','Gamification tool',L.gamification,'Search tools, for example Captain Up')+chips('reporting','Reporting tools',L.reporting,true,'reportingOther');}
     if(S.k==='size'){body=chips('brands','Number of brands',L.brands,false)+chips('customers','Active customers per month',L.customers,false)+chips('team','People working on CRM and operations',L.team,false);}
     if(S.k==='priority'){
@@ -168,7 +169,7 @@
       stage.querySelectorAll('.sc-opt').forEach(function(b){b.addEventListener('click',function(){setup.priority=b.getAttribute('data-v');stage.querySelectorAll('.sc-opt').forEach(function(x){x.setAttribute('aria-pressed',x===b);});setTimeout(function(){go(CALC);},reduce?60:260);});});
       return;
     }
-    screen('<span class="sc-area">Your setup</span><p class="sc-q">'+S.t+'</p><p class="sc-help">'+S.h+'</p><div class="sc-fields">'+body+'</div><div class="sc-actions"><button class="btn btn-primary" id="scNext" type="button">Continue</button><button class="sc-skip" id="scSkip" type="button">Skip this question</button></div>');
+    screen('<span class="sc-area">Your setup</span><p class="sc-q">'+S.t+'</p><p class="sc-help">'+S.h+'</p><div class="sc-fields">'+body+'</div><div class="sc-actions"><button class="btn fill" id="scNext" type="button">Continue '+ARR+'</button><button class="sc-skip" id="scSkip" type="button">Skip this question</button></div>');
     stage.querySelectorAll('.combo').forEach(bindCombo);
     stage.querySelectorAll('.chips').forEach(function(g){bindChips(g,function(k,v){if(k==='market'){var w=document.getElementById('licWrap');w.hidden=v!=='Regulated';if(v!=='Regulated')setup.licence='';}});});
     var lic=document.getElementById('lic');if(lic)lic.addEventListener('input',function(){setup.licence=lic.value.trim();});
@@ -189,54 +190,66 @@
     return {total:total,level:lvl,pct:pct,weakest:weakest,fixes:fixes};
   }
   function renderCalc(){
-    screen('<div class="sc-calc"><div class="ring" aria-hidden="true"></div><p>Building your Scorecard</p><p class="muted">Comparing your answers across the five levels</p></div>');
+    screen('<div class="sc-calc"><div class="ring" aria-hidden="true"></div><p>Building your Scorecard</p><p class="s">Comparing your answers across the five levels</p></div>');
     setTimeout(function(){if(cur===CALC)go(RESULT);},reduce?300:1900);
   }
   var submitted=false;
   function detailHTML(r){
-    var bars=AREAS.map(function(a){return '<div class="area-row"><span class="t">'+a+'</span><div class="track"><div class="fill" data-w="'+r.pct[a]+'"></div></div><span class="v">'+r.pct[a]+'%</span></div>';}).join('');
+    var bars=AREAS.map(function(a){return '<div class="area"><span class="t">'+a+'</span><div class="track"><div class="fill" data-w="'+r.pct[a]+'"></div></div><span class="v">'+r.pct[a]+'%</span></div>';}).join('');
     var fx=r.fixes.map(function(f){return '<li><div><b>'+esc(f[0])+'</b><span>'+esc(f[1])+'</span></div></li>';}).join('');
-    return '<h3 class="res-h">Your four areas</h3><div class="areas">'+bars+'</div><h3 class="res-h">Your three biggest fixes</h3><ol class="fixes">'+fx+'</ol>'+
-      '<div class="res-start"><h3>Where we would start</h3><p>'+esc(MODULE[r.weakest])+'</p></div>'+
-      '<div class="sc-actions"><a class="btn btn-primary" href="/contact/">Book 30 minutes to walk through it</a><a class="btn btn-quiet" href="/sample-report/">See a sample report</a></div>';
+    return '<h2 class="d3 res-h">Your four areas</h2><div class="areas">'+bars+'</div><h2 class="d3 res-h">Your three biggest fixes</h2><ol class="fixes">'+fx+'</ol>'+
+      '<div class="res-start"><h3 class="d4">Where we would start</h3><p>'+esc(MODULE[r.weakest])+'</p></div>'+
+      '<div class="sc-actions"><a class="btn fill" href="/contact">Book 30 minutes to walk through it '+ARR+'</a><a class="btn line" href="/sample-report">See a sample audit report</a></div>';
   }
   function renderResult(){
     var r=compute(),L5=LEVELS[r.level-1];
     var ladder=[1,2,3,4,5].map(function(n){return '<div class="'+(n<=r.level?'on':'')+(n===r.level?' here':'')+'" title="Level '+n+'"></div>';}).join('');
-    var head='<div class="res-level"><div class="res-badge"><div><b>'+r.level+'</b><span>of 5</span></div></div><div><h2>You are at level '+r.level+': '+L5.n+'</h2><p>'+esc(L5.d)+'</p></div></div><div class="res-ladder" aria-label="Level '+r.level+' of 5">'+ladder+'</div>';
+    var head='<div class="res-head"><div class="res-badge"><div><b>'+r.level+'</b><span>of 5</span></div></div><div><p class="eyebrow">Your Operations Scorecard</p><h1 class="d2" style="margin-top:10px">You are at level '+r.level+', <em class="a">'+L5.n.toLowerCase()+'.</em></h1><p class="lead">'+esc(L5.d)+'</p></div></div><div class="res-ladder" aria-label="Level '+r.level+' of 5">'+ladder+'</div>';
     if(submitted){
       screen(head+'<div class="res-note" id="resNote"></div>'+detailHTML(r));
       setNote();animateBars();return;
     }
     screen(head+'<div class="locked"><div class="blur" aria-hidden="true">'+detailHTML(r)+'</div>'+
-      '<form class="gate" id="gate" novalidate><h3>Your full Scorecard is ready</h3><p>See your four area scores, your three biggest fixes and where we would start. We will also prepare a free detailed report for you.</p>'+
-      '<div class="sc-fields"><div class="field"><label for="g-email">Work email</label><input class="input" id="g-email" name="email" type="email" autocomplete="email" required></div>'+
-      '<div class="grid2"><div class="field"><label for="g-name">First name <span class="opt">(optional)</span></label><input class="input" id="g-name" name="name" autocomplete="given-name"></div><div class="field"><label for="g-co">Company <span class="opt">(optional)</span></label><input class="input" id="g-co" name="company" autocomplete="organization"></div></div>'+
-      '<div class="hp"><label>Leave empty<input name="website" tabindex="-1" autocomplete="off"></label></div>'+
-      '<div class="form-msg" id="g-msg" role="status"></div>'+
-      '<div><button class="btn btn-primary" type="submit" id="g-btn">Show my Scorecard</button></div><p class="form-note">We will email you a copy. No spam, and at most one follow-up.</p></div></form></div>');
+      '<form class="gate" id="gate" novalidate><h2 class="d3">Your full Scorecard is ready</h2><p>See your four area scores, your three biggest fixes and where we would start. We will also prepare a free detailed report for you within five working days.</p>'+
+      '<div class="sc-fields"><div class="fld"><label for="g-email">Work email</label><input class="inp" id="g-email" name="email" type="email" autocomplete="email" required></div>'+
+      '<div class="f2"><div class="fld"><label for="g-name">First name <span class="opt">(optional)</span></label><input class="inp" id="g-name" name="name" autocomplete="given-name"></div><div class="fld"><label for="g-co">Company <span class="opt">(optional)</span></label><input class="inp" id="g-co" name="company" autocomplete="organization"></div></div>'+
+      '<div class="hp2"><label>Leave empty<input name="website" tabindex="-1" autocomplete="off"></label></div>'+
+      '<div class="fmsg" id="g-msg" role="status"></div>'+
+      '<div><button class="btn fill" type="submit" id="g-btn">Show my Scorecard '+ARR+'</button></div><p class="fnote2">We email you a confirmation now and the detailed report within five working days. No newsletter, and at most one follow-up.</p></div></form></div>');
     animateBars();
     var f=document.getElementById('gate');
     f.addEventListener('submit',function(e){
       e.preventDefault();
       var email=f.email.value.trim(),msg=document.getElementById('g-msg'),btn=document.getElementById('g-btn');
-      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){msg.className='form-msg err';msg.textContent='Enter a valid work email to see your Scorecard.';f.email.focus();return;}
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){msg.className='fmsg bad';msg.textContent='Enter a valid work email to see your Scorecard.';f.email.focus();return;}
       btn.disabled=true;btn.textContent='Preparing your Scorecard';
-      var payload={email:email,name:f.name.value.trim(),company:f.company.value.trim(),website:f.website.value,
-        result:{total:r.total,level:r.level,levelName:L5.n,areas:r.pct,weakest:r.weakest,fixes:r.fixes.map(function(x){return x[0];})},
-        answers:Q.map(function(q,i){return {area:q.a,question:q.q,answer:scores[i]==null?'Not answered':q.o[scores[i]],points:scores[i]==null?0:scores[i]};}),
-        setup:setup,seconds:started?Math.round((Date.now()-started)/1000):null,page:location.href};
+
       window.__vlEmail=email;
-      fetch('/api/scorecard',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
-        .then(function(res){if(!res.ok)throw new Error();window.__vlSent=true;})
+      if(f.website.value){submitted=true;window.__vlSent=true;renderResult();return;}
+      var list=function(v){return Array.isArray(v)?v.join(', '):(v||'');};
+      var data={_subject:'Operations Scorecard: level '+r.level+' from '+(f.company.value.trim()||email),_template:'table',_captcha:'false',
+        _autoresponse:'Thank you for completing the Vesperline Operations Scorecard. Your operation is at level '+r.level+' of 5, '+L5.n+'. Area scores: Run '+r.pct.Run+'%, Connect '+r.pct.Connect+'%, Automate '+r.pct.Automate+'%, Measure '+r.pct.Measure+'%. Your free detailed report will arrive within 5 working days. It will cover your biggest gaps, what to fix first and how to measure the result. If you would like to walk through it together, reply to this email and we will find 30 minutes. The Vesperline team, vesperline.io',
+        email:email,name:f.name.value.trim(),company:f.company.value.trim(),
+        'Level':r.level+' of 5, '+L5.n,'Total score':r.total+' of 30','Run':r.pct.Run+'%','Connect':r.pct.Connect+'%','Automate':r.pct.Automate+'%','Measure':r.pct.Measure+'%',
+        'Weakest area':r.weakest,'Top fixes':r.fixes.map(function(x){return x[0];}).join(' | '),
+        'Platform':setup.platform,'CRM':setup.crm,'Support desk':setup.support,'Channels':list(setup.channels),
+        'Messaging providers':[list(setup.providers),setup.providersOther].filter(Boolean).join(', '),
+        'Market':setup.market,'Licence':setup.licence,'Gamification':setup.gamification,
+        'Reporting':[list(setup.reporting),setup.reportingOther].filter(Boolean).join(', '),
+        'Brands':setup.brands,'Active customers per month':setup.customers,'Team size':setup.team,'Priority, next 90 days':setup.priority,
+        'Time taken':started?Math.round((Date.now()-started)/1000)+' seconds':''};
+      Q.forEach(function(q,i){data['Q'+(i+1)+' '+q.a+': '+q.q]=(scores[i]==null?'Not answered':q.o[scores[i]])+' ('+(scores[i]==null?0:scores[i])+'/3)';});
+      fetch('https://formsubmit.co/ajax/info@vesperline.io',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+        .then(function(res){if(!res.ok)throw new Error();return res.json();})
+        .then(function(j){window.__vlSent=!(j&&String(j.success)==='false');})
         .catch(function(){window.__vlSent=false;})
         .finally(function(){submitted=true;renderResult();});
     });
   }
   function setNote(){
     var n=document.getElementById('resNote');if(!n)return;
-    if(window.__vlSent){n.innerHTML='<b>Thank you.</b> We have sent a confirmation to '+esc(window.__vlEmail)+'. Your free detailed report will arrive within 5 working days.';}
-    else{n.style.borderColor='var(--warn)';n.innerHTML='<b>Your Scorecard is below,</b> but we could not save your details just now. To receive the free detailed report, email <a class="link" href="mailto:info@vesperline.io?subject=Operations%20Scorecard">info@vesperline.io</a>.';}
+    if(window.__vlSent){n.className='res-note';n.innerHTML='<b>Thank you.</b> We have sent a confirmation to '+esc(window.__vlEmail)+'. Your free detailed report will arrive within 5 working days.';}
+    else{n.className='res-note warn';n.innerHTML='<b>Your Scorecard is below,</b> but we could not save your details just now. To receive the free detailed report, email <a href="mailto:info@vesperline.io?subject=Operations%20Scorecard">info@vesperline.io</a>.';}
   }
   function animateBars(){requestAnimationFrame(function(){requestAnimationFrame(function(){stage.querySelectorAll('.fill[data-w]').forEach(function(b){b.style.width=b.getAttribute('data-w')+'%';});});});}
 

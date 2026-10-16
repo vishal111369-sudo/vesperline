@@ -1,166 +1,380 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vesperline | We run what comes after the launch</title>
-<meta name="description" content="A dedicated team that runs daily operations, connects your systems and automates repetitive work, on the stack you already own. Results proven in your own data.">
+<title>Vesperline</title>
+<meta name="description" content="A dedicated team that runs the daily operation, owns the integrations between your systems and automates the repetitive half, on the systems you already use. Results proven in your own data.">
+<meta name="theme-color" content="#F1F4F8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#060B18" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://vesperline.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='100%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%231E3A8A'/%3E%3Cstop offset='52%25' stop-color='%232456A8'/%3E%3Cstop offset='100%25' stop-color='%233F9BD8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg transform='translate(28,26)'%3E%3Crect x='-24' y='16' width='48' height='6' rx='3' fill='url(%23g)'/%3E%3Cpath d='M0 -22 L4.4 -4.4 L22 0 L4.4 4.4 L0 22 L-4.4 4.4 L-22 0 L-4.4 -4.4 Z' fill='url(%23g)'/%3E%3C/g%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Vesperline">
-<meta property="og:title" content="Vesperline | We run what comes after the launch">
-<meta property="og:description" content="A dedicated team that runs daily operations, connects your systems and automates repetitive work, on the stack you already own. Results proven in your own data.">
+<meta property="og:title" content="Vesperline">
+<meta property="og:description" content="A dedicated team that runs the daily operation, owns the integrations between your systems and automates the repetitive half, on the systems you already use. Results proven in your own data.">
 <meta property="og:url" content="https://vesperline.io/">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='lg' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%232E6BC4'/%3E%3Cstop offset='.6' stop-color='%235FC4F0'/%3E%3Cstop offset='1' stop-color='%238FDBFA'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M16 3 L18.2 11.8 L27 14 L18.2 16.2 L16 25 L13.8 16.2 L5 14 L13.8 11.8 Z' fill='url(%23lg)'/%3E%3Crect x='3' y='27' width='26' height='2.2' rx='1.1' fill='url(%23lg)'/%3E%3C/svg%3E">
-<script>try{var t=localStorage.getItem('vl-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..700;1,62..125,300..700&display=swap">
 <link rel="stylesheet" href="/styles.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Vesperline", "url": "https://vesperline.io/", "email": "info@vesperline.io", "description": "A dedicated team that runs daily operations, connects systems and automates repetitive work for consumer businesses, on the stack they already own."}</script>
+<script>
+(function(){var r=document.documentElement;r.classList.add('js');var s=null;
+try{s=localStorage.getItem('vsp-mode');}catch(e){}
+if(!s){s=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'night':'day';}
+r.dataset.mode=s;})();
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Vesperline","legalName":"Vesperline India Private Limited","url":"https://vesperline.io/","email":"info@vesperline.io"}</script>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="site-head">
-  <div class="wrap nav">
-    <a class="brand" href="/" aria-label="Vesperline home"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#2E6BC4"/><stop offset=".6" stop-color="#5FC4F0"/><stop offset="1" stop-color="#8FDBFA"/></linearGradient></defs><path d="M16 3 L18.2 11.8 L27 14 L18.2 16.2 L16 25 L13.8 16.2 L5 14 L13.8 11.8 Z" fill="url(#lg)"/><rect x="3" y="27" width="26" height="2.2" rx="1.1" fill="url(#lg)"/></svg><span>Vesper<span class="l2">line</span></span></a>
-    <nav class="nav-links" aria-label="Main">
-      <a href="/services">Services</a>
-      <a href="/proof">How we prove results</a>
+
+<header class="top" id="top">
+  <div class="shell top-in">
+    <a class="mark" href="/" aria-label="Vesperline, home"><svg viewBox="0 0 56 56" aria-hidden="true"><defs><linearGradient id="bg1" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="var(--brand1)"/><stop offset="52%" stop-color="var(--brand2)"/><stop offset="100%" stop-color="var(--brand3)"/></linearGradient></defs><g transform="translate(28,26)"><rect x="-24" y="16" width="48" height="6" rx="3" fill="url(#bg1)"/><path d="M0 -22 L4.4 -4.4 L22 0 L4.4 4.4 L0 22 L-4.4 4.4 L-22 0 L-4.4 -4.4 Z" fill="url(#bg1)"/><circle cx="14.5" cy="-11.8" r="3" fill="var(--glint)"/></g></svg><span class="wm">Vesper<i>line</i></span></a>
+    <nav class="topnav" id="topnav" aria-label="Primary">
+      <a href="/services">What we do</a>
+      <a href="/proof">How we prove it</a>
       <a href="/scorecard">Scorecard</a>
-      <a href="/partners">Partners</a>
       <a href="/how-we-work">How we work</a>
+      <a href="/partners">Partners</a>
     </nav>
-    <div class="nav-end">
-      <button class="theme" type="button" aria-label="Switch theme"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button>
-      <a class="btn btn-primary" href="/contact">Book 30 minutes</a>
-      <button class="menu" type="button" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <div class="topright">
+      <div class="seg" role="group" aria-label="Board mode">
+        <button type="button" id="mDay" aria-pressed="true" aria-label="Day" title="Day">
+          <svg viewBox="0 0 20 20" aria-hidden="true" class="sign"><circle cx="10" cy="10" r="4.1"/><path d="M10 1.4v2.4M10 16.2v2.4M1.4 10h2.4M16.2 10h2.4M4 4l1.7 1.7M14.3 14.3 16 16M16 4l-1.7 1.7M5.7 14.3 4 16"/></svg>
+        </button>
+        <button type="button" id="mNight" aria-pressed="false" aria-label="Night" title="Night">
+          <svg viewBox="0 0 20 20" aria-hidden="true" class="sign"><path d="M16.2 12.6A7 7 0 0 1 7.4 3.8a7 7 0 1 0 8.8 8.8Z"/></svg>
+        </button>
+      </div>
+      <a class="btn fill" href="/contact" style="padding:10px 18px;font-size:.88rem">Book a call</a>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="topnav">Menu</button>
     </div>
   </div>
 </header>
-<main id="main">
+<nav class="rail" id="rail" aria-label="Sections">
+  <ol>
+    <li data-t="you"><a href="#you">Is this you</a></li>
+    <li data-t="work"><a href="#work">What we do</a></li>
+    <li data-t="proof"><a href="#proof">How we prove it</a></li>
+    <li data-t="level"><a href="#level">Your level</a></li>
+    <li data-t="start"><a href="#start">Start small</a></li>
+    <li data-t="safe"><a href="#safe">If it fails</a></li>
+    <li data-t="faq"><a href="#faq">Questions</a></li>
+    <li data-t="contact"><a href="#contact">Book it</a></li>
+  </ol>
+</nav>
 
-<section class="hero">
-  <div class="wrap">
-    <h1>Everyone sells you the launch. <span class="second">We run what comes after.</span></h1>
-    <p class="lede">A dedicated team that runs your daily operations, connects your systems and automates the repetitive work, on the stack you already own. Nothing to install, nothing to migrate.</p>
-    <div class="ctas">
-      <a class="btn btn-primary" href="/scorecard">Get your Operations Scorecard</a>
-      <a class="btn btn-quiet" href="/contact">Book 30 minutes</a>
+<main id="home">
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-grid"></div>
+      <canvas id="stars"></canvas>
     </div>
-    <div class="horizon" aria-hidden="true">
-      <svg viewBox="0 0 1064 90" preserveAspectRatio="none">
-        <defs><linearGradient id="hg" x1="0" x2="1"><stop offset="0" stop-color="#2E6BC4"/><stop offset=".6" stop-color="#5FC4F0"/><stop offset="1" stop-color="#8FDBFA"/></linearGradient></defs>
-        <line class="pre" x1="0" y1="50" x2="300" y2="50"/>
-        <line class="glow" x1="300" y1="50" x2="1064" y2="50"/>
-        <line class="post" x1="300" y1="50" x2="1064" y2="50"/>
-        <circle class="pin" cx="300" cy="50" r="7"/>
-        <text x="0" y="82">Build and launch</text>
-        <text x="300" y="24" text-anchor="middle">Go-live</text>
-        <text class="t-post" x="1064" y="82" text-anchor="end">Operations, every day after. This is our part.</text>
-        <path class="star" d="M1046 30 L1049 41 L1060 44 L1049 47 L1046 58 L1043 47 L1032 44 L1043 41 Z" transform="translate(0,6)"/>
-      </svg>
-    </div>
-  </div>
-</section>
-
-<section class="rule">
-  <div class="wrap">
-    <div class="sec-head"><h2>Sound familiar?</h2><p class="lede">Most teams don't struggle at launch. They struggle in month three, when the daily work never stops.</p></div>
-    <div class="situations">
-      <div class="situation"><p>You launched, and now the daily work is drowning the team.</p><span>Campaigns, queues, content and reports all land on the same few people.</span></div>
-      <div class="situation"><p>Your systems disagree on simple numbers.</p><span>Three reports, three different counts of active customers, and nobody trusts any of them.</span></div>
-      <div class="situation"><p>Everyone wants AI. Nobody owns making it safe.</p><span>People use chat tools on the side, with no approval step and no log.</span></div>
-      <div class="situation"><p>You report activity, but can't prove what it earned.</p><span>Opens and clicks look busy. Leadership still asks what it was worth.</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="wrap">
-    <div class="sec-head"><h2>One team, four ways in</h2><p class="lede">Start with the module that hurts most. They are built to work together, run by the same named people.</p></div>
-    <div class="modules">
-      <a class="module" href="/services#run"><span class="mn"><b>Vesperline</b> Run</span><p>Campaigns, promotions, customer queues and reporting, run every day inside your systems by a named team.</p><span class="more">What Run covers</span></a>
-      <a class="module" href="/services#connect"><span class="mn"><b>Vesperline</b> Connect</span><p>Integrations, data sync and clean records, with alerts that fire before a silent failure reaches a customer.</p><span class="more">What Connect covers</span></a>
-      <a class="module" href="/services#automate"><span class="mn"><b>Vesperline</b> Automate</span><p>Repetitive work handed to automation and AI, always with a human approval step and a full log.</p><span class="more">What Automate covers</span></a>
-      <a class="module" href="/services#measure"><span class="mn"><b>Vesperline</b> Measure</span><p>Results proven against a group we leave untouched, measured in your own data, every month.</p><span class="more">What Measure covers</span></a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="sec-head"><h2>Results you can check yourself</h2><p class="lede">Most reports give a campaign credit for anything that happened after it. We measure what would not have happened without the work.</p></div>
-    <div class="proof-steps">
-      <div class="ps"><h3>We keep a small group untouched</h3><p>A random 5 to 10% of customers get none of the new work. They show what would have happened anyway.</p></div>
-      <div class="ps"><h3>We run the work for everyone else</h3><p>Same customers, same period, same systems. The only difference is what we do.</p></div>
-      <div class="ps"><h3>The difference is what we earned</h3><p>You see it in your own data every month, net of every cost, including rewards and discounts.</p></div>
-    </div>
-    <p style="margin-top:40px"><a class="link" href="/proof">Read how we prove results</a></p>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="wrap">
-    <div class="sec-head"><h2>Where does your operation sit today?</h2><p class="lede">Every operation moves through the same five levels. Most teams we meet sit at level 2, working hard and still guessing.</p></div>
-    <div class="ladder">
-      <div class="rung"><span class="lv">Level 1</span><h3>Reactive</h3><p>Work happens by hand, mostly when something breaks.</p></div>
-      <div class="rung"><span class="lv">Level 2</span><h3>Repeatable</h3><p>Checklists exist. Numbers live in spreadsheets.</p></div>
-      <div class="rung"><span class="lv">Level 3</span><h3>Connected</h3><p>Systems talk to each other, with one version of the truth.</p></div>
-      <div class="rung"><span class="lv">Level 4</span><h3>Measured</h3><p>Every campaign has a control group. Results are proven monthly.</p></div>
-      <div class="rung"><span class="lv">Level 5</span><h3>Self-improving</h3><p>Safe automation, and decisions taken from proof.</p></div>
-    </div>
-    <a class="btn btn-primary" href="/scorecard">Find your level in 3 minutes</a>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="sec-head"><h2>How it starts</h2><p class="lede">Small first steps, so you can judge the work before you commit to a team.</p></div>
-    <div class="start">
-      <div class="s"><div class="k">First</div><h3>A free audit</h3><p>We go through your first 30 days the way a new customer would, and show you every gap we find. No system access needed.</p></div>
-      <div class="s"><div class="k">Then</div><h3>A small pilot</h3><p>One job, one metric, one report. You see how we work and what it earns before anything bigger.</p></div>
-      <div class="s"><div class="k">After that</div><h3>Your team</h3><p>Named people who stay on your account. Nobody is swapped without your agreement.</p></div>
-    </div>
-    <p style="margin-top:40px"><a class="link" href="/sample-report">See a sample audit report</a></p>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="wrap">
-    <div class="sec-head"><h2>Questions we hear first</h2></div>
-    <div class="faq"><details><summary>Do we have to change our systems?</summary><div class="a">No. We work inside the platform, tools and licences you already have. Nothing is migrated and nothing new is installed unless you ask for it.</div></details><details><summary>Who exactly does the work?</summary><div class="a">Named people you meet before we start. You know who runs your campaigns, who owns your integrations and who to call. The same people stay on your account.</div></details><details><summary>How do you handle our data and access?</summary><div class="a">We use the access you grant, inside your systems, with named accounts and the permissions you set. Your data stays where it is and stays yours.</div></details><details><summary>How fast can you start?</summary><div class="a">The free audit starts as soon as you ask for it. A pilot usually starts within two weeks of agreeing the scope.</div></details><details><summary>What if it doesn't work?</summary><div class="a">That is what the pilot is for. It has one clear metric agreed up front, so we both know within weeks whether the work is paying for itself.</div></details></div>
-  </div>
-</section>
-
-<section class="cta-band">
-  <div class="wrap">
-    <h2>Tell us what the operation looks like now.</h2>
-    <p class="lede">Thirty minutes, no slides. You describe the operation, we tell you honestly where we would start, or whether we are the wrong fit.</p>
-    <div class="ctas"><a class="btn btn-primary" href="/contact">Book 30 minutes</a><a class="btn btn-quiet" href="/scorecard">Get your Operations Scorecard</a></div>
-  </div>
-</section>
-</main>
-<footer>
-  <div class="wrap">
-    <div class="foot">
-      <div>
-        <a class="brand" href="/" aria-label="Vesperline home"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#2E6BC4"/><stop offset=".6" stop-color="#5FC4F0"/><stop offset="1" stop-color="#8FDBFA"/></linearGradient></defs><path d="M16 3 L18.2 11.8 L27 14 L18.2 16.2 L16 25 L13.8 16.2 L5 14 L13.8 11.8 Z" fill="url(#lg)"/><rect x="3" y="27" width="26" height="2.2" rx="1.1" fill="url(#lg)"/></svg><span>Vesper<span class="l2">line</span></span></a>
-        <p class="tagline">We run what comes after the launch, on the systems you already own.</p>
+    <div class="shell">
+      <div class="hero-in">
+        <p class="eyebrow rv">Operations, technology and AI. One team.</p>
+        <h1 class="d1 rv">Everyone sells you the launch. <em class="a">We run what comes after.</em></h1>
+        <p class="lead rv">A dedicated team that runs the daily operation, owns the integrations between your systems, and automates the repetitive half. On the systems you already use.</p>
+        <div class="hero-act rv">
+          <a class="btn fill" href="/contact">Book 30 minutes <svg viewBox="0 0 15 10" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4"/></svg></a>
+          <a class="btn line" href="/scorecard">Get your Operations Scorecard</a>
+        </div>
       </div>
-      <div><h4>Services</h4><ul>
-        <li><a href="/services#run">Vesperline Run</a></li><li><a href="/services#connect">Vesperline Connect</a></li>
-        <li><a href="/services#automate">Vesperline Automate</a></li><li><a href="/services#measure">Vesperline Measure</a></li></ul></div>
-      <div><h4>Company</h4><ul>
-        <li><a href="/how-we-work">How we work</a></li><li><a href="/proof">How we prove results</a></li>
-        <li><a href="/partners">For platform partners</a></li><li><a href="/sample-report">Sample audit report</a></li><li><a href="/scorecard">Operations Scorecard</a></li></ul></div>
-      <div><h4>Contact</h4><ul>
-        <li><a href="mailto:info@vesperline.io">info@vesperline.io</a></li>
-        <li><a href="/contact">Book 30 minutes</a></li>
-        <li>Vesperline India Private Limited</li><li>Hyderabad, India</li></ul></div>
+      <div class="who-for rv">
+        <div class="k">Who this is for</div>
+        <ul>
+          <li>Launching a <b>new brand or market</b></li>
+          <li>Building an <b>operations team</b> from nothing</li>
+          <li>One manager <b>doing the work of three</b></li>
+          <li><b>Post-migration</b>, with duplicate records and broken exports</li>
+          <li>A platform and a CRM that <b>disagree about the same customer</b></li>
+          <li>Asked to <b>adopt AI</b>, unsure what is safe to automate under regulation</li>
+        </ul>
+      </div>
+      <div class="trust rv">
+        <ol>
+          <li><div class="c">2022</div><div class="l">Delivering regulated, high volume consumer operations since</div></li>
+          <li><div class="c num">8</div><div class="l">Systems this team operates hands on today</div></li>
+          <li><div class="c">Named</div><div class="l">People you meet before they start, and who are not swapped without your agreement</div></li>
+          <li><div class="c num">0</div><div class="l">Statements on this site we cannot evidence on request</div></li>
+        </ol>
+        <div class="foot">No client logos, no award badges and no percentage claims. We are a new firm and each of those would be borrowed. Every statement here can be tested in the first ten minutes of a call.</div>
+      </div>
     </div>
-    <div class="foot-base"><span>&copy; 2026 Vesperline India Private Limited</span><span>Your platform, licences and data stay yours.</span></div>
+  </section>
+
+  <div class="shell">
+
+    <section class="sec" id="you">
+      <div class="centered">
+        <p class="eyebrow rv">Three ways people arrive here</p>
+        <h2 class="d2 head rv">One of these is <em class="a">on your desk right now.</em></h2>
+        <p class="lead sec-lead rv">Two of them concern something that has not happened yet. That is usually the better point to call.</p>
+      </div>
+      <div class="doors">
+        <article class="door rv">
+          <div class="k">Door one</div>
+          <h3>You have <em>a date.</em></h3>
+          <p>A new brand, a new market, or a vertical you have not operated before. The date has been committed publicly. Behind it sits an integration list that is unfinished and an operations team that does not yet exist.</p>
+          <ul>
+            <li>Licensing is moving faster than the payment and verification integrations</li>
+            <li>Market-specific reporting requirements are arriving as late engineering tickets</li>
+            <li>No one has been named as the owner of the operation from the day after launch</li>
+          </ul>
+        </article>
+        <article class="door rv">
+          <div class="k">Door two</div>
+          <h3>You have a mandate and <em>one quarter.</em></h3>
+          <p>You have been asked to establish an operations function. On paper that is a lifecycle lead, an analyst trusted with the numbers, someone holding the integrations, someone who can automate, and someone reachable on a Friday. Five hires and nine months.</p>
+          <ul>
+            <li>The shortlist has been empty for longer than you have reported upward</li>
+            <li>Headcount was approved before the timeline was costed</li>
+            <li>You would rather start now and hire well than hire quickly and start late</li>
+          </ul>
+        </article>
+        <article class="door rv">
+          <div class="k">Door three</div>
+          <h3>You have a number and <em>no control over it.</em></h3>
+          <p>You report retention, revenue or promotion cost every month. Between you and that figure sit a platform, a CRM, a payment provider and an engineering queue. Each owns a part. None owns the number, and none reports to you.</p>
+          <ul>
+            <li>The same integration has failed more than once this year</li>
+            <li>Two systems disagree about the same customer and finance has raised it</li>
+            <li>The person who understood how it fits together has resigned</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="band rv">
+        <h2 class="d2">Going live is a project. <em class="a">Running it is a discipline.</em></h2>
+        <p class="sub">Nothing has to be migrated for us to take it on. You keep your platform, your licences and your accounts.</p>
+      </div>
+    </section>
+
+    <section class="sec" id="work">
+      <p class="eyebrow rv">What one team does</p>
+      <h2 class="d2 head rv">Four parts of one job, normally bought from <em class="a">four different suppliers.</em></h2>
+      <p class="lead sec-lead rv">Most firms hold one of these and hand you the rest as your coordination problem. Holding them together is why the work reduces over time instead of piling up.</p>
+      <div class="rows">
+        <article class="prow rv">
+          <div>
+            <div class="n">01 / Vesperline Run</div>
+            <h3>We run it</h3>
+          </div>
+          <p>The daily work, performed in your systems, under your controls, on your reporting cadence. Set up from scratch where nothing exists yet, or taken on from wherever you have reached.</p>
+          <ul><li>Promotion and incentive campaigns configured, reviewed and seed-tested before release</li><li>Payout and verification queues worked down daily, not counted and reported</li><li>The weekly management pack, reconciled to platform figures</li></ul>
+        </article>
+
+        <article class="prow rv">
+          <div>
+            <div class="n">02 / Vesperline Connect</div>
+            <h3>We connect it</h3>
+          </div>
+          <p>The integration that keeps failing is repaired by the people who watched it fail, rather than queued behind eleven tickets on another supplier's roadmap.</p>
+          <ul><li>The platform to CRM event feed, including the events most exports leave out</li><li>Reconciliation across platform, payment providers and finance</li><li>Alerting on silent failure, so a stopped job is raised the same night</li></ul>
+        </article>
+
+        <article class="prow rv">
+          <div>
+            <div class="n">03 / Vesperline Automate</div>
+            <h3>We reduce it</h3>
+          </div>
+          <p>We automate the parts that are rules and leave judgement where it belongs. Every automated action is logged and reversible, and a person approves before anything reaches a customer.</p>
+          <ul><li>The recurring report rebuilt by hand each week</li><li>Drafted responses approved by a person, never sent alone</li><li>Every automated action logged with its input and its reversal path</li></ul>
+        </article>
+
+        <article class="prow rv">
+          <div>
+            <div class="n">04 / Vesperline Measure</div>
+            <h3>We prove it</h3>
+          </div>
+          <p>Larger pieces of work are measured against a small group we leave untouched, in your own data. The figure you report upward has a method behind it that finance can check.</p>
+          <ul><li>A holdout group and campaign control groups, agreed in writing first</li><li>Net revenue over thirty days, after reward costs, not clicks</li><li>Payback time for new customers, tracked month by month</li></ul>
+        </article>
+
+      </div>
+      <a class="go rv" href="/services">See everything each part covers <svg viewBox="0 0 15 10" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4"/></svg></a>
+    </section>
+
+    <section class="sec" id="proof">
+      <p class="eyebrow rv">How we prove it</p>
+      <h2 class="d2 head rv">Results you can check <em class="a">in your own data.</em></h2>
+      <p class="lead sec-lead rv">Most reports give a campaign credit for anything that happened after it. We measure what would not have happened without the work.</p>
+      <div class="press">
+        <article class="rv"><div class="n">Step 1</div><h3>We leave a small group untouched</h3><p>A random five to ten percent of customers get none of the new work. They show what would have happened anyway.</p></article>
+        <article class="rv"><div class="n">Step 2</div><h3>We run the work for everyone else</h3><p>Same customers, same period, same systems. The only difference is what we did.</p></article>
+        <article class="rv"><div class="n">Step 3</div><h3>The difference is what it earned</h3><p>Reported monthly from your systems, <b>after every cost</b>, including rewards and discounts.</p></article>
+      </div>
+      <a class="go rv" href="/proof">Read the method in full <svg viewBox="0 0 15 10" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4"/></svg></a>
+    </section>
+
+    <section class="sec" id="level">
+      <p class="eyebrow rv">Where you are today</p>
+      <h2 class="d2 head rv">Five levels, and most teams <em class="a">sit at the second.</em></h2>
+      <p class="lead sec-lead rv">Working hard and still guessing is normal. Knowing which level you are at tells you what to fix first.</p>
+      <div class="ladder">
+        <div class="rung rv"><div class="n">Level 1</div><h3>Reactive</h3><p>Work happens by hand, mostly when something breaks.</p></div>
+        <div class="rung rv"><div class="n">Level 2</div><h3>Repeatable</h3><p>Checklists exist. The numbers live in spreadsheets.</p></div>
+        <div class="rung rv"><div class="n">Level 3</div><h3>Connected</h3><p>Systems agree with each other. One version of the truth.</p></div>
+        <div class="rung rv"><div class="n">Level 4</div><h3>Measured</h3><p>Every campaign has a control group. Results proven monthly.</p></div>
+        <div class="rung rv"><div class="n">Level 5</div><h3>Self-improving</h3><p>Safe automation, and decisions taken from proof.</p></div>
+      </div>
+      <div class="ladder-act rv">
+        <a class="btn line" href="/scorecard">Find your level in three minutes <svg viewBox="0 0 15 10" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4"/></svg></a>
+        <span class="note">The Operations Scorecard. Free, with a detailed report within five working days.</span>
+      </div>
+    </section>
+
+    <section class="sec" id="start">
+      <p class="eyebrow rv">Starting small</p>
+      <h2 class="d2 head rv">Three first steps, <em class="a">each one small enough to say yes to.</em></h2>
+      <p class="lead sec-lead rv">You judge the work before you commit to a team. Terms are written down before anything starts.</p>
+      <div class="pilots">
+        <article class="pilot rv">
+          <div class="n">01</div>
+          <h3>A free audit</h3>
+          <p>We sign up on your brand as a real customer, record everything that arrives in the first thirty days, and hand back a written map of the gaps with rebuilt flows.</p>
+          <dl>
+            <div><dt>Cost</dt><dd>Nothing</dd></div>
+            <div><dt>Access needed</dt><dd>None</dd></div>
+            <div><dt>Your time</dt><dd>One call</dd></div>
+          </dl>
+        </article>
+        <article class="pilot rv">
+          <div class="n">02</div>
+          <h3>One job, one metric</h3>
+          <p>A single piece of work, measured against an untouched group, with one report at the end. Small enough to approve without procurement.</p>
+          <dl>
+            <div><dt>Length</dt><dd>Four to six weeks</dd></div>
+            <div><dt>Fee</dt><dd>Fixed, agreed first</dd></div>
+            <div><dt>Tools</dt><dd>Yours throughout</dd></div>
+          </dl>
+        </article>
+        <article class="pilot rv">
+          <div class="n">03</div>
+          <h3>Your named team</h3>
+          <p>A specialist, a small team or a managed function. You meet every person before they start, and capacity is reviewed monthly.</p>
+          <dl>
+            <div><dt>People</dt><dd>Named, met first</dd></div>
+            <div><dt>Coverage</dt><dd>Agreed in writing</dd></div>
+            <div><dt>Review</dt><dd>Monthly</dd></div>
+          </dl>
+        </article>
+      </div>
+      <a class="go rv" href="/sample-report">See what the free audit delivers <svg viewBox="0 0 15 10" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4"/></svg></a>
+    </section>
+
+    <section class="sec" id="safe">
+      <div class="centered">
+        <p class="eyebrow rv">Before you have to ask</p>
+        <h2 class="d2 head rv">What you are actually <em class="a">taking on.</em></h2>
+        <p class="lead sec-lead rv">You are the person who has to defend this decision internally, so both sides of it are set out here.</p>
+      </div>
+      <div class="risk">
+        <div class="rv">
+          <h3>If it works</h3>
+          <ul>
+            <li>The function runs without you supervising it in the evenings</li>
+            <li>The failure that recurs every month stops recurring</li>
+            <li>The management pack reconciles, and finance stops disputing it</li>
+            <li>You have a figure to report, with a documented method behind it</li>
+          </ul>
+        </div>
+        <div class="bad rv">
+          <h3>If it does not</h3>
+          <ul>
+            <li>You have a named team you can ask us to change</li>
+            <li>Capacity and scope are adjusted at the monthly review, in writing</li>
+            <li>Nothing was migrated, so nothing has to be migrated back</li>
+            <li>The documentation, the configuration and anything built remain yours</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="faq">
+      <div class="centered">
+        <p class="eyebrow rv">Questions</p>
+        <h2 class="d2 head rv">What people ask <em class="a">in the first ten minutes.</em></h2>
+      </div>
+      <div class="faq">
+        <div class="rv"><h3>Do we have to migrate anything?</h3><p>No. That is the position. No replatform, no new licence, no data moved out of your environment. If a migration would genuinely benefit you we will say so, and it remains your decision rather than becoming our project.</p></div>
+        <div class="rv"><h3>How quickly can a team start?</h3><p>Usually within a few weeks of the first call, because you interview the people first and we would rather wait for the right ones than fill a seat. The free audit can start the same week.</p></div>
+        <div class="rv"><h3>How are engagements structured commercially?</h3><p>By resource. Named people at a defined seniority, an agreed coverage window and a monthly rate, set out in the proposal before anything begins. Roles and capacity are reviewed monthly.</p></div>
+        <div class="rv"><h3>How does this differ from our platform provider's managed service?</h3><p>Theirs is generally available only while you remain on their platform. We do not sell a platform, so we have no reason to steer you toward one, or to defend one when it is the component that failed.</p></div>
+        <div class="rv"><h3>Who approves work before it goes live?</h3><p>Whoever you nominate. Our default is that we build and review, you approve, and every release goes to a seed or staging step first.</p></div>
+        <div class="rv"><h3>Do you hold ISO 27001 or SOC 2?</h3><p>Not yet, and we will not display a badge we have not earned. What we can show is the working practice: least privilege access created and revoked by you, and a log of every automated action.</p></div>
+      </div>
+      <div class="xlinks">
+        <a class="xlink rv" href="/how-we-work">
+          <div class="k">Related</div>
+          <h3>How we work, and what stays yours</h3>
+          <p>The five steps, the systems we operate, an honest comparison with the alternatives, and the three ways to bring the team in.</p>
+          <span class="go">Read how we work <svg viewBox="0 0 15 10" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4"/></svg></span>
+        </a>
+        <a class="xlink rv" href="https://crm-services.vesperline.com">
+          <div class="k">Related</div>
+          <h3>CRM and retention services</h3>
+          <p>The same team focused on one function. Lifecycle, segmentation, campaign operations and the reporting behind them, with a lifecycle review as the way in.</p>
+          <span class="go">Open the service line <svg viewBox="0 0 15 10" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4"/></svg></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="sec close" id="contact">
+      <div class="close-in has-form rv">
+        <div>
+          <h2 class="d2">Tell us what the operation <em class="a">looks like now.</em></h2>
+          <p class="lead" style="margin-top:22px">Thirty minutes, no deck and no script. Bring the failure you are dealing with, or the date you have committed to. If we are not the right team for it we will say so on the call, and point you toward who is.</p>
+          <form class="cform" data-subject="New enquiry from vesperline.io" data-topic="contact" novalidate>
+            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="f2">
+              <label><span>Name</span><input type="text" name="name" required autocomplete="name"></label>
+              <label><span>Work email</span><input type="email" name="email" required autocomplete="email"></label>
+            </div>
+            <div class="f2">
+              <label><span>Company</span><input type="text" name="company" autocomplete="organization"></label>
+              <label><span>Phone, if you prefer a call</span><input type="tel" name="phone" autocomplete="tel"></label>
+            </div>
+            <label><span>What are you dealing with?</span><textarea name="message" rows="3" required></textarea></label>
+            <div class="fact">
+              <button class="btn fill" type="submit">Send it <svg viewBox="0 0 15 10" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4"/></svg></button>
+              <span class="fnote" role="status" aria-live="polite"></span>
+            </div>
+          </form>
+        </div>
+      <div class="cside">
+        <div class="cbox">
+          <div class="ck">Contact</div>
+          <p><a href="mailto:info@vesperline.io">info@vesperline.io</a></p>
+          <div class="ck">Registered office</div>
+          <address>Vesperline India Private Limited<br>Hyderabad, India</address>
+        </div>
+        <div class="clinks">
+          <a href="https://vesperline.io">vesperline.io</a>
+          <a href="https://tech.vesperline.io">tech.vesperline.io</a>
+          <a href="https://crm-services.vesperline.com">crm-services.vesperline.com</a>
+        </div>
+      </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="shell foot-in">
+    <span>Vesperline India Private Limited</span>
+    <nav aria-label="Footer">
+      <a href="/scorecard">Operations Scorecard</a>
+      <a href="/sample-report">Sample audit report</a>
+      <a href="/partners">For platform partners</a>
+      <a href="https://crm-services.vesperline.com">CRM and retention services</a>
+    </nav>
+    <span><a href="#top">Back to top</a></span>
   </div>
 </footer>
 <script src="/site.js"></script>
